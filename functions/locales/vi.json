@@ -1,0 +1,11 @@
+{
+  "contact.create.success": "Thêm mới thông tin liên hệ thành công",
+  "contact.create.failed": "Thêm mới thông tin liên hệ thất bại",
+  "contact.find.success": "Tìm kiếm thông tin liên hệ thành công",
+  "contact.find.failed": "Tìm kiếm thông tin liên hệ thất bại",
+  "contact.update.success": "Cập nhật thông tin liên hệ thành công",
+  "contact.update.failed": "Cập nhật thông tin liên hệ thất bại",
+  "contact.delete.success": "Xóa thông tin liên hệ thành công",
+  "contact.delete.failed": "Xóa thông tin liên hệ thất bại",
+	"system.error": "Lỗi hệ thống"
+}
