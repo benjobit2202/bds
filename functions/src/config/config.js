@@ -2,13 +2,13 @@
 require('dotenv').config();
 
 module.exports = {
-  baby: process.env.USER_MYSQL,
+  baby: process.env.USER_POSTGRESQL,
   db: {
-    user: process.env.USER_MYSQL,
-    password: process.env.PASSWORD_MYSQL,
-    database: process.env.DATABASE_MYSQL,
-    host: process.env.HOST_MYSQL,
-    port: process.env.PORT,
+    user: process.env.USER_POSTGRESQL,
+    password: process.env.PASSWORD_POSTGRESQL,
+    database: process.env.DATABASE_POSTGRESQL,
+    host: process.env.HOST_POSTGRESQL,
+    port: process.env.PORT_POSTGRESQL,
     dialect: 'postgres',
     dialectModule: require('pg')
   },
