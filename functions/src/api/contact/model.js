@@ -28,17 +28,9 @@ module.exports = (sequelize, DataTypes) => {
           type: DataTypes.STRING,
           field: 'message'
       },
-      created_time: {
-          type: DataTypes.TIME,
-          field: 'created_time'
-      },
       created_by: {
           type: DataTypes.STRING,
           field: 'created_by'
-      },
-      updated_time: {
-          type: DataTypes.TIME,
-          field: 'updated_time'
       },
       updated_by: {
           type: DataTypes.STRING,

@@ -8,8 +8,9 @@ module.exports = {
     password: process.env.PASSWORD_MYSQL,
     database: process.env.DATABASE_MYSQL,
     host: process.env.HOST_MYSQL,
-    dialect: 'mysql',
-    dialectModule: require('mysql2')
+    port: process.env.PORT,
+    dialect: 'postgres',
+    dialectModule: require('pg')
   },
   status: {
     success: 1,

@@ -9,15 +9,20 @@ require('dotenv').config();
 */
 const createContact = async (req, res) => {
   try {
-    const result = await db.db.Contact.create(req.body)
+    const data = await db.db.Contact.create(req.body)
+
+    let result = data.dataValues
 
     if (result) {
+      result.created_at = result.createdAt
+      result.updated_at = result.updatedAt
+
       helpers.response(res, result, config.httpStatus.success, req.__('contact.create.success'))
     } else {
       helpers.response(res, result, config.httpStatus.badRequest, req.__('contact.create.failed'))
     }
   } catch (error) {
-    helpers.response(res, error, config.httpStatus.success, req.__('system.error'))
+    helpers.response(res, error, config.httpStatus.badRequest, req.__('system.error'))
   }
 }
 
@@ -27,15 +32,23 @@ const createContact = async (req, res) => {
 const getListContact = async (req, res) => {
 
   try {
-    const result = await db.db.Contact.findAll({ raw: true })
+    const data = await db.db.Contact.findAll({ raw: true })
 
-    if (result && result.length) {
+    if (data && data.length) {
+      let result = []
+      for (let item of data) {
+        item.created_at = item.createdAt
+        item.updated_at = item.updatedAt
+
+        result.push(item)
+      }
+
       helpers.response(res, result, config.httpStatus.success, req.__('contact.find.success'))
     } else {
       helpers.response(res, result, config.httpStatus.badRequest, req.__('contact.find.failed'))
     }
   } catch (error) {
-    helpers.response(res, error, config.httpStatus.success, req.__('system.error'))
+    helpers.response(res, error, config.httpStatus.badRequest, req.__('system.error'))
   }
 }
 
@@ -47,14 +60,17 @@ const getDetailContact = async (req, res) => {
     const id = req.params["id"]
 
     const result = await db.db.Contact.findOne({ where: { id: id }, raw: true })
-
+    
     if (result) {
+      result.created_at = result.createdAt
+      result.updated_at = result.updatedAt
+
       helpers.response(res, result, config.httpStatus.success, req.__('contact.find.success'))
     } else {
       helpers.response(res, result, config.httpStatus.badRequest, req.__('contact.find.failed'))
     }
   } catch (error) {
-    helpers.response(res, error, config.httpStatus.success, req.__('system.error'))
+    helpers.response(res, error, config.httpStatus.badRequest, req.__('system.error'))
   }
 }
 
